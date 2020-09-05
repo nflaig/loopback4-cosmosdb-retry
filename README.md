@@ -46,10 +46,17 @@ class CosmosdbDataSource extends RetryMixin(juggler.DataSource) {
     constructor(args) {
         super(args);
 
-        this.maxRetries = 19; // do 19 retries after the first request (default: 9)
-        this.retryAfterInMs = 2000; // default delay after each request if no suggested delay is in error response (default: 1000)
-        this.retryAfterPaddingInMs = 200; // additional delay to add to the suggested delay in error response (default: 0)
-        this.useFixedRetryInterval = false; // always use fixed retry interval based on retryAfterInMs (default: false)
+        // do 19 retries after the first request (default: 9)
+        this.maxRetries = 19;
+
+        // default delay if no suggested delay is in error response (default: 1000)
+        this.retryAfterInMs = 2000;
+
+        // additional delay to add to the suggested delay in error response (default: 0)
+        this.retryAfterPaddingInMs = 200;
+
+        // always use fixed retry interval based on retryAfterInMs (default: false)
+        this.useFixedRetryInterval = false;
     }
 }
 ```
