@@ -1,13 +1,13 @@
 # loopback4-cosmosdb-retry
 
-[![Actions Status](https://github.com/nflaig/loopback4-cosmosdb-retry/workflows/build/badge.svg)](https://github.com/nflaig/loopback4-cosmosdb-retry/actions)
-[![Coverage Status](https://coveralls.io/repos/github/nflaig/loopback4-cosmosdb-retry/badge.svg?branch=refs/heads/master)](https://coveralls.io/github/nflaig/loopback4-cosmosdb-retry?branch=refs/heads/master)
-[![Dependencies Status](https://david-dm.org/nflaig/loopback4-cosmosdb-retry/status.svg)](https://david-dm.org/nflaig/loopback4-cosmosdb-retry)
+[![Actions Status][build-badge]][actions]
+[![Coverage Status][coveralls-badge]][coveralls]
+[![Dependencies Status][dependencies-badge]][dependencies]
 
-[![Latest version](https://img.shields.io/npm/v/loopback4-cosmosdb-retry.svg?style=flat-square)](https://www.npmjs.com/package/loopback4-cosmosdb-retry)
-[![License](https://img.shields.io/github/license/nflaig/loopback4-cosmosdb-retry.svg?color=blue&label=License&style=flat-square)](https://github.com/nflaig/loopback4-cosmosdb-retry/blob/master/LICENSE)
-[![Downloads](https://img.shields.io/npm/dw/loopback4-cosmosdb-retry.svg?label=Downloads&style=flat-square&color=blue)](https://www.npmjs.com/package/loopback4-cosmosdb-retry)
-[![Total Downloads](https://img.shields.io/npm/dt/loopback4-cosmosdb-retry.svg?label=Total%20Downloads&style=flat-square&color=blue)](https://www.npmjs.com/package/loopback4-cosmosdb-retry)
+[![Latest version][npm-version-badge]][npm-package]
+[![License][license-badge]][license]
+[![Downloads][npm-downloads-badge]][npm-package]
+[![Total Downloads][npm-total-downloads-badge]][npm-package]
 
 LoopBack 4 data source mixin to handle database operation retries in case of Azure Cosmos DB request
 limit errors caused by exceeding the available [Request Units][request-units].
@@ -97,11 +97,27 @@ you need to manually handle this.
 
 ## Contributing
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/nflaig/loopback4-cosmosdb-retry/issues)
+[![contributions welcome][contributions-welcome-badge]][issues]
 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
+
+[actions]: https://github.com/nflaig/loopback4-cosmosdb-retry/actions
+[license]: https://github.com/nflaig/loopback4-cosmosdb-retry/blob/master/LICENSE
+[issues]: https://github.com/nflaig/loopback4-cosmosdb-retry/issues
+[coveralls]: https://coveralls.io/github/nflaig/loopback4-cosmosdb-retry?branch=refs/heads/master
+[dependencies]: https://david-dm.org/nflaig/loopback4-cosmosdb-retry
+[npm-package]: https://www.npmjs.com/package/loopback4-cosmosdb-retry
+
+[build-badge]: https://github.com/nflaig/loopback4-cosmosdb-retry/workflows/build/badge.svg
+[coveralls-badge]: https://coveralls.io/repos/github/nflaig/loopback4-cosmosdb-retry/badge.svg?branch=refs/heads/master
+[dependencies-badge]: https://david-dm.org/nflaig/loopback4-cosmosdb-retry/status.svg
+[npm-version-badge]: https://img.shields.io/npm/v/loopback4-cosmosdb-retry.svg?style=flat-square
+[npm-downloads-badge]: https://img.shields.io/npm/dw/loopback4-cosmosdb-retry.svg?label=Downloads&style=flat-square&color=blue
+[npm-total-downloads-badge]: https://img.shields.io/npm/dt/loopback4-cosmosdb-retry.svg?label=Total%20Downloads&style=flat-square&color=blue
+[license-badge]: https://img.shields.io/github/license/nflaig/loopback4-cosmosdb-retry.svg?color=blue&label=License&style=flat-square
+[contributions-welcome-badge]: https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat
 
 [request-units]: http://aka.ms/cosmosdb-error-429
 [lb4-mixins]: https://loopback.io/doc/en/lb4/Mixin.html
