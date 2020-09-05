@@ -1,0 +1,79 @@
+{
+  "name": "loopback4-cosmosdb-retry",
+  "version": "0.1.0",
+  "description": "LoopBack 4 Azure Cosmos DB data source retry mixin",
+  "keywords": [
+    "loopback-4",
+    "datasource",
+    "mixin",
+    "cosmosdb",
+    "retry"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=10.16"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "build": "lb-tsc",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean dist *.tsbuildinfo .eslintcache",
+    "lint": "npm run prettier:check && npm run eslint",
+    "lint:fix": "npm run eslint:fix && npm run prettier:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "eslint": "lb-eslint --report-unused-disable-directives .",
+    "eslint:fix": "npm run eslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "test": "lb-mocha --allow-console-logs \"dist/__tests__\"",
+    "test:dev": "lb-mocha --allow-console-logs dist/__tests__/**/*.js",
+    "test:ci": "lb-nyc -r lcov -r text npm run test:dev",
+    "test:coverage": "lb-nyc npm run test",
+    "test:visualize": "npm run test -- --reporter mochawesome --reporter-options reportDir=coverage",
+    "test:report": "npm run test:coverage && npm run test:visualize",
+    "prepublishOnly": "npm test",
+    "verify": "npm run build && npm pack && lb-clean loopback4-cosmosdb-retry*.tgz",
+    "prepack": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nflaig/loopback4-cosmosdb-retry"
+  },
+  "bugs": {
+    "url": "https://github.com/nflaig/loopback4-cosmosdb-retry/issues"
+  },
+  "author": "Nico Flaig <nflaig@protonmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src",
+    "!*/__tests__"
+  ],
+  "peerDependencies": {
+    "@loopback/repository": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@loopback/build": "6.2.2",
+    "@loopback/core": "2.9.5",
+    "@loopback/eslint-config": "8.0.4",
+    "@loopback/repository": "2.10.0",
+    "@loopback/testlab": "3.2.4",
+    "@types/node": "14.6.4",
+    "eslint": "7.8.1",
+    "husky": "4.2.5",
+    "mochawesome": "6.1.1",
+    "source-map-support": "0.5.19",
+    "ts-node": "9.0.0",
+    "typescript": "4.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm run lint"
+    }
+  }
+}
