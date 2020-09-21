@@ -1,3 +1,4 @@
+<!-- omit in toc -->
 # loopback4-cosmosdb-retry
 
 [![Actions Status][build-badge]][actions]
@@ -11,6 +12,17 @@
 
 LoopBack 4 data source mixin to handle database operation retries in case of Azure Cosmos DB request
 limit errors caused by exceeding the available [Request Units][request-units].
+
+<!-- omit in toc -->
+## Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Related resources](#related-resources)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Prerequisites
 
