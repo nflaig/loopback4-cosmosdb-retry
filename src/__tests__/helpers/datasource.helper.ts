@@ -1,4 +1,4 @@
-import { inject } from "@loopback/core"; // eslint-disable-line no-unused-vars
+import { inject } from "@loopback/core";
 import { juggler } from "@loopback/repository";
 import { RetryMixin } from "../../mixins";
 

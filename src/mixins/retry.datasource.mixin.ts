@@ -29,7 +29,7 @@ export function RetryMixin<T extends MixinTarget<juggler.DataSource>>(dataSource
             // save the original `execute` implementation
             connector._originalExecute = connector.execute;
             // inject custom version of `execute`
-            (connector.execute as (...args: any[]) => any) = (...params: unknown[]) => {
+            (connector.execute as (...params: any[]) => any) = (...params: unknown[]) => {
                 // connectors are still callback-based, LB4 type definitions are incorrect
                 const callback = params.pop() as Function;
 
