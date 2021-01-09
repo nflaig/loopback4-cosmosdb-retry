@@ -66,7 +66,7 @@ describe("Retry Mixin (unit)", () => {
         );
     });
 
-    it("should return the result if no error occurres", async () => {
+    it("should return the result if no error occurs", async () => {
         sandbox.stub(connectorWithRetry, originalExecute).callsArgWith(2, null, successResponse);
 
         const result = await wrappedExecute();
@@ -74,7 +74,7 @@ describe("Retry Mixin (unit)", () => {
         expect(result).to.equal(successResponse);
     });
 
-    it("should throw if an unknown error occurres", async () => {
+    it("should throw if an unknown error occurs", async () => {
         sandbox.stub(connectorWithRetry, originalExecute).callsArgWith(2, unknownError, null);
 
         await expect(wrappedExecute()).to.be.rejectedWith(unknownError);
