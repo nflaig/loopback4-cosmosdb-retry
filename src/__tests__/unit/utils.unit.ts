@@ -1,7 +1,44 @@
 import { expect } from "@loopback/testlab";
-import { getEnvNumber, getEnvBoolean } from "../../utils";
+import { getEnvNumber, getEnvBoolean, pluralize } from "../../utils";
 
 describe("Utils (unit)", () => {
+    describe("pluralize()", () => {
+        const noun = "test";
+
+        it("should pluralize the given noun and display the count", () => {
+            const count = 2;
+
+            const pluralized = pluralize(noun, count);
+
+            expect(pluralized).to.equal(`${count} ${noun}s`);
+        });
+
+        it("should not pluralize the given noun if the count is one", () => {
+            const count = 1;
+
+            const pluralized = pluralize(noun, count);
+
+            expect(pluralized).to.equal(`${count} ${noun}`);
+        });
+
+        it("should not display the count if the prefixNumber is set to false", () => {
+            const count = 1;
+
+            const pluralized = pluralize(noun, count, false);
+
+            expect(pluralized).to.equal(noun);
+        });
+
+        it("should append a different suffix if specified", () => {
+            const count = 2;
+
+            const differentSuffix = "differentSuffix";
+            const pluralized = pluralize(noun, count, false, differentSuffix);
+
+            expect(pluralized).to.equal(noun + differentSuffix);
+        });
+    });
+
     describe("getEnvNumber()", () => {
         const key = "TEST_NUMBER";
         const defaultValue = 123;

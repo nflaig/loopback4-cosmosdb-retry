@@ -6,7 +6,9 @@ import {
     USE_FIXED_RETRY_INTERVAL,
     shouldRetry,
     getDelayInMs,
-    TooManyRequestsError
+    TooManyRequestsError,
+    logRetry,
+    logTooManyRequests
 } from "../retry";
 import { MixinTarget } from "../types";
 
@@ -32,6 +34,7 @@ export function RetryMixin<T extends MixinTarget<juggler.DataSource>>(dataSource
             (connector.execute as (...params: any[]) => any) = (...params: unknown[]) => {
                 // connectors are still callback-based, LB4 type definitions are incorrect
                 const callback = params.pop() as Function;
+                const [collection, method] = params as [string, string];
 
                 let attempt = 1;
 
@@ -52,6 +55,8 @@ export function RetryMixin<T extends MixinTarget<juggler.DataSource>>(dataSource
                         ? this.retryAfterInMs
                         : getDelayInMs(error, this.retryAfterPaddingInMs) ?? this.retryAfterInMs;
 
+                    logRetry(attempt, delay, this.maxRetries, method, collection);
+
                     if (attempt <= this.maxRetries) {
                         attempt++;
                         setTimeout(
@@ -59,6 +64,7 @@ export function RetryMixin<T extends MixinTarget<juggler.DataSource>>(dataSource
                             delay
                         );
                     } else {
+                        logTooManyRequests(error);
                         callback(new TooManyRequestsError(delay), ...results);
                     }
                 };

@@ -20,6 +20,7 @@ limit errors caused by exceeding the available [Request Units][request-units].
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Debug](#debug)
 - [Related resources](#related-resources)
 - [Contributing](#contributing)
 - [License](#license)
@@ -102,6 +103,11 @@ you need to manually handle this.
 
 ```
 
+## Debug
+
+To enable debug logs set the `DEBUG` environment variable to `loopback:cosmosdb-retry`, see
+[Setting debug strings][lb4-debug-strings] for further details.
+
 ## Related resources
 
 - [LoopBack 4 Mixins ][lb4-mixins]
@@ -133,4 +139,5 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 
 [request-units]: http://aka.ms/cosmosdb-error-429
 [lb4-mixins]: https://loopback.io/doc/en/lb4/Mixin.html
+[lb4-debug-strings]: https://loopback.io/doc/en/lb4/Setting-debug-strings.html
 [default-values]: https://github.com/nflaig/loopback4-cosmosdb-retry/blob/master/src/retry.ts#L4

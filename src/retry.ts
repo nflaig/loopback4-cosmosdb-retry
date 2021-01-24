@@ -1,5 +1,8 @@
+import debugFactory from "debug";
 import { ErrorResponse } from "./types";
-import { getEnvNumber, getEnvBoolean } from "./utils";
+import { getEnvNumber, getEnvBoolean, pluralize } from "./utils";
+
+const debug = debugFactory("loopback:cosmosdb-retry");
 
 export const MAX_RETRIES = getEnvNumber("MAX_RETRIES", 9);
 export const RETRY_AFTER_IN_MS = getEnvNumber("RETRY_AFTER_IN_MS", 1000);
@@ -32,6 +35,30 @@ export function shouldRetry(error?: any): boolean {
     } else {
         return false;
     }
+}
+
+// eslint-disable-next-line max-params
+export function logRetry(
+    attempt: number,
+    delayInMs: number,
+    maxRetries: number,
+    method: string,
+    collection: string
+) {
+    const attempts = pluralize("time", attempt);
+    const baseMessage = `Database operation ${method} on ${collection} collection has failed ${attempts}.`;
+    const retryMessage = `${baseMessage} Retrying after ${delayInMs}ms...`;
+    const maxAmountMessage = `${baseMessage} Maximum amount of retries has been reached.`;
+
+    if (attempt <= maxRetries) {
+        debug(retryMessage);
+    } else {
+        debug(maxAmountMessage);
+    }
+}
+
+export function logTooManyRequests(error?: any) {
+    debug(getErrorMessage(error));
 }
 
 export function getDelayInMs(error?: any, retryAfterPaddingInMs = 0): number | undefined {
