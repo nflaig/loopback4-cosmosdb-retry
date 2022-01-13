@@ -109,7 +109,7 @@ To enable debug logs set the `DEBUG` environment variable to `loopback:cosmosdb-
 
 ## Related resources
 
-- [LoopBack 4 Mixins ][lb4-mixins]
+- [LoopBack 4 Mixins][lb4-mixins]
 - [Request Units in Azure Cosmos DB][request-units]
 
 ## Contributing
