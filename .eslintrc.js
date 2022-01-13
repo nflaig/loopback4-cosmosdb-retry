@@ -1,6 +1,11 @@
 module.exports = {
     extends: ["eslint:recommended", "@loopback/eslint-config"],
-    overrides: [],
+    overrides: [
+        {
+            files: ["src/__tests__/fixtures/models/**"],
+            rules: { indent: "off" }
+        }
+    ],
     parserOptions: {
         ecmaVersion: 9,
         sourceType: "module"
