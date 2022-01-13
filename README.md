@@ -3,7 +3,6 @@
 
 [![Actions Status][build-badge]][actions]
 [![Coverage Status][coveralls-badge]][coveralls]
-[![Dependencies Status][dependencies-badge]][dependencies]
 
 [![Latest version][npm-version-badge]][npm-package]
 [![License][license-badge]][license]
@@ -125,12 +124,10 @@ This project is licensed under the MIT license. See the [LICENSE](LICENSE) file 
 [license]: https://github.com/nflaig/loopback4-cosmosdb-retry/blob/master/LICENSE
 [issues]: https://github.com/nflaig/loopback4-cosmosdb-retry/issues
 [coveralls]: https://coveralls.io/github/nflaig/loopback4-cosmosdb-retry?branch=refs/heads/master
-[dependencies]: https://david-dm.org/nflaig/loopback4-cosmosdb-retry
 [npm-package]: https://www.npmjs.com/package/loopback4-cosmosdb-retry
 
 [build-badge]: https://github.com/nflaig/loopback4-cosmosdb-retry/workflows/build/badge.svg
 [coveralls-badge]: https://coveralls.io/repos/github/nflaig/loopback4-cosmosdb-retry/badge.svg?branch=refs/heads/master
-[dependencies-badge]: https://david-dm.org/nflaig/loopback4-cosmosdb-retry/status.svg
 [npm-version-badge]: https://img.shields.io/npm/v/loopback4-cosmosdb-retry.svg?style=flat-square
 [npm-downloads-badge]: https://img.shields.io/npm/dw/loopback4-cosmosdb-retry.svg?label=Downloads&style=flat-square&color=blue
 [npm-total-downloads-badge]: https://img.shields.io/npm/dt/loopback4-cosmosdb-retry.svg?label=Total%20Downloads&style=flat-square&color=blue
